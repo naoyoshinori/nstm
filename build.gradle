@@ -1,6 +1,8 @@
 apply plugin: 'idea'
 apply plugin: 'groovy'
 
+version = '0.1'
+
 repositories {
     mavenCentral()
 }
@@ -15,13 +17,22 @@ dependencies {
 testClasses {
     copy {
         from 'templates'
-        into 'build/classes/templates'
+        into "${buildDir}/classes/templates"
     }
 }
 
 jar {
     copy {
+        from configurations.runtime
+        into "${buildDir}/libs/lib"
+    }
+    copy {
         from 'templates'
-        into 'build/libs/templates'
+        into "${buildDir}/libs/templates"
+    }
+    manifest {
+        def manifestClasspath = configurations.runtime.collect {"lib/${it.name}"}.join(' ')
+        attributes 'Main-Class': 'org.nstmframework.Nstm'
+        attributes 'Class-Path': manifestClasspath
     }
 }

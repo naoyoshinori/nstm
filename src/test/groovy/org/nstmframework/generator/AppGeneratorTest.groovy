@@ -1,22 +1,23 @@
 package org.nstmframework.generator
 
-import org.apache.commons.io.FileUtils
 import spock.lang.Specification
+import spock.lang.Unroll
 
 /**
  * User: Naoyuki Yoshinori
  */
 class AppGeneratorTest extends Specification {
 
-    String app_root = 'build/test-projects'
+    static app_root = 'build/test-projects'
 
-    def "アプリケーションを作成する"() {
+    @Unroll
+    def "#app_name アプリケーションを作成する"() {
         given:
         def generator = new AppGenerator(app_root: app_root, app_name: app_name)
         generator.start()
 
         expect:
-        new File(app_root, app_name)
+        new File(app_root, app_name).exists()
 
         where:
         app_name << ["newApp1"]

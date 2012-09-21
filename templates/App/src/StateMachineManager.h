@@ -5,38 +5,38 @@ namespace StateMachineFramework
 {
 
 	/**
-	 * StateMachineManager ƒNƒ‰ƒX.
+	 * StateMachineManager ã‚¯ãƒ©ã‚¹.
 	 */
 	class StateMachineManager
 	{
 	public:
 
 		/**
-		 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
-		 * @param factory ƒtƒ@ƒNƒgƒŠ[ƒNƒ‰ƒX
+		 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
+		 * @param factory ãƒ•ã‚¡ã‚¯ãƒˆãƒªãƒ¼ã‚¯ãƒ©ã‚¹
 		 */
 		StateMachineManager(AbstractStateMachineFactory *factory);
 
 		/**
-		 * ƒfƒXƒgƒ‰ƒNƒ^B
+		 * ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 		 */
 		~StateMachineManager(void);
 
 		/**
-		 * ‰Šú‰»B
-		 * @param key ó‘ÔƒL[
+		 * åˆæœŸåŒ–ã€‚
+		 * @param key çŠ¶æ…‹ã‚­ãƒ¼
 		 */
 		bool create(char *key);
 
 		/**
-		 * Às‚·‚éB
+		 * å®Ÿè¡Œã™ã‚‹ã€‚
 		 */
 		bool run(void);
 
 	private:
 
 		/**
-		 * ƒNƒ[ƒYB
+		 * ã‚¯ãƒ­ãƒ¼ã‚ºã€‚
 		 */
 		void close(void);
 

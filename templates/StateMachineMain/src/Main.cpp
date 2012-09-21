@@ -5,14 +5,14 @@ using namespace StateMachineFramework;
 
 int main(void)
 {
-    // �C���X�^���X���쐬����N���X
-    // AbstractStateMachineFactory �N���X���������Ă��������B
+    // インスタンスを作成するクラス
+    // AbstractStateMachineFactory クラスを実装してください。
     ${factory_name} factory;
-    // ��ԑJ�ڂ��Ǘ�����N���X
+    // 状態遷移を管理するクラス
     StateMachineManager manager(&factory);
 
-    // �J�n����X�e�[�g�}�V�����w�肵�Ă��������B
+    // 開始するステートマシンを指定してください。
     manager.create("${first_state_machine}");
-    // ��ԑJ�ڂ��I���܂Ŏ��s�B
+    // 状態遷移が終わるまで実行。
     while (!manager.run());
 }

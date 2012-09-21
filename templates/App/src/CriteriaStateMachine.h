@@ -10,7 +10,7 @@ namespace StateMachineFramework
 {
 
 	/**
-	 * CriteriaStateMachine ƒNƒ‰ƒXB
+	 * CriteriaStateMachine ã‚¯ãƒ©ã‚¹ã€‚
 	 */
 	class CriteriaStateMachine :
 		public StateMachine
@@ -18,32 +18,32 @@ namespace StateMachineFramework
 	public:
 
 		/**
-		 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+		 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 		 */
 		CriteriaStateMachine(void);
 
 		/**
-		 * ‰¼‘zƒfƒXƒgƒ‰ƒNƒ^B
+		 * ä»®æƒ³ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 		 */
 		~CriteriaStateMachine(void);
 
 		/**
-		 * ƒXƒe[ƒgƒ}ƒVƒ“‚Ì‚·‚×‚Ä‚Ì Entry ‚ğÀs‚µ‚Ü‚·B
+		 * ã‚¹ãƒ†ãƒ¼ãƒˆãƒã‚·ãƒ³ã®ã™ã¹ã¦ã® Entry ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
 		 */
 		void doEntries(void);
 
 		/**
-		 * ƒXƒe[ƒgƒ}ƒVƒ“‚Ì‚·‚×‚Ä‚Ì Do ‚ğÀs‚µ‚Ü‚·B
+		 * ã‚¹ãƒ†ãƒ¼ãƒˆãƒã‚·ãƒ³ã®ã™ã¹ã¦ã® Do ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
 		 */
 		void doActions(void);
 
 		/**
-		 * ƒXƒe[ƒgƒ}ƒVƒ“‚Ì‚·‚×‚Ä‚Ì Event ‚ğÀs‚µ‚Ü‚·B
+		 * ã‚¹ãƒ†ãƒ¼ãƒˆãƒã‚·ãƒ³ã®ã™ã¹ã¦ã® Event ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
 		 */
 		void doEvents(void);
 
 		/**
-		 * ƒXƒe[ƒgƒ}ƒVƒ“‚Ì‚·‚×‚Ä‚Ì Exit ‚ğÀs‚µ‚Ü‚·B
+		 * ã‚¹ãƒ†ãƒ¼ãƒˆãƒã‚·ãƒ³ã®ã™ã¹ã¦ã® Exit ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
 		 */
 		void doExits(void);
 

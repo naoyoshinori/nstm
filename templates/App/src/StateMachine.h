@@ -5,7 +5,7 @@ namespace StateMachineFramework
 {
 
 	/**
-	 * StateMachine ƒNƒ‰ƒXB
+	 * StateMachine ã‚¯ãƒ©ã‚¹ã€‚
 	 */
 	class StateMachine :
 		public StateMachineNoticeResolver
@@ -13,32 +13,32 @@ namespace StateMachineFramework
 	public:
 
 		/**
-		 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+		 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 		 */
 		StateMachine(void) {}
 		
 		/**
-		 * ‰¼‘zƒfƒXƒgƒ‰ƒNƒ^B
+		 * ä»®æƒ³ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 		 */
 		virtual ~StateMachine(void) {}
 
 		/**
-		 * ƒXƒe[ƒgƒ}ƒVƒ“‚Ì‚·‚×‚Ä‚Ì Entry ‚ğÀs‚µ‚Ü‚·B
+		 * ã‚¹ãƒ†ãƒ¼ãƒˆãƒã‚·ãƒ³ã®ã™ã¹ã¦ã® Entry ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
 		 */
 		virtual void doEntries(void) = 0;
 
 		/**
-		 * ƒXƒe[ƒgƒ}ƒVƒ“‚Ì‚·‚×‚Ä‚Ì Do ‚ğÀs‚µ‚Ü‚·B
+		 * ã‚¹ãƒ†ãƒ¼ãƒˆãƒã‚·ãƒ³ã®ã™ã¹ã¦ã® Do ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
 		 */
 		virtual void doActions(void) = 0;
 
 		/**
-		 * ƒXƒe[ƒgƒ}ƒVƒ“‚Ì‚·‚×‚Ä‚Ì Event ‚ğÀs‚µ‚Ü‚·B
+		 * ã‚¹ãƒ†ãƒ¼ãƒˆãƒã‚·ãƒ³ã®ã™ã¹ã¦ã® Event ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
 		 */
 		virtual void doEvents(void) = 0;
 
 		/**
-		 * ƒXƒe[ƒgƒ}ƒVƒ“‚Ì‚·‚×‚Ä‚Ì Exit ‚ğÀs‚µ‚Ü‚·B
+		 * ã‚¹ãƒ†ãƒ¼ãƒˆãƒã‚·ãƒ³ã®ã™ã¹ã¦ã® Exit ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
 		 */
 		virtual void doExits(void) = 0;
 

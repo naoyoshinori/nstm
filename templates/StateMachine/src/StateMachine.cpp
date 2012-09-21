@@ -2,31 +2,31 @@
 
 void ${name}::doEntries(void)
 {
-    // TODO: doEntries‚ðŽÀ‘•‚µ‚Ä‚­‚¾‚³‚¢B
+    // TODO: doEntriesã‚’å®Ÿè£…ã—ã¦ãã ã•ã„ã€‚
 }
 
 
 void ${name}::doActions(void)
 {
-    // TODO: doActions‚ðŽÀ‘•‚µ‚Ä‚­‚¾‚³‚¢B
+    // TODO: doActionsã‚’å®Ÿè£…ã—ã¦ãã ã•ã„ã€‚
 }
 
 
 void ${name}::doEvents(void)
 {
-    // Example:‚T‰ñˆÈãŽÀs‚·‚é‚Æ "NextStateMachine" ‚Ö‘JˆÚ‚·‚éB
+    // Example:ï¼•å›žä»¥ä¸Šå®Ÿè¡Œã™ã‚‹ã¨ "NextStateMachine" ã¸é·ç§»ã™ã‚‹ã€‚
     // static int cnt = 0;
     // 
-    // if (++cnt >= 5) {  // ƒK[ƒhðŒ
-    //    notifyNextStateMachineKey("NextStateMachine");  // ‘JˆÚ‚Ì’Ê’m‚Æ‘JˆÚæ‚ðŽw’è‚·‚éB
+    // if (++cnt >= 5) {  // ã‚¬ãƒ¼ãƒ‰æ¡ä»¶
+    //    notifyNextStateMachineKey("NextStateMachine");  // é·ç§»ã®é€šçŸ¥ã¨é·ç§»å…ˆã‚’æŒ‡å®šã™ã‚‹ã€‚
     // }
 
-    // TODO: doEvents‚ðŽÀ‘•‚µ‚Ä‚­‚¾‚³‚¢B
+    // TODO: doEventsã‚’å®Ÿè£…ã—ã¦ãã ã•ã„ã€‚
 }
 
 
 void ${name}::doExits(void)
 {
-    // TODO: doExits‚ðŽÀ‘•‚µ‚Ä‚­‚¾‚³‚¢B
+    // TODO: doExitsã‚’å®Ÿè£…ã—ã¦ãã ã•ã„ã€‚
 }
 

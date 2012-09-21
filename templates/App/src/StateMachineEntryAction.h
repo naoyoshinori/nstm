@@ -5,8 +5,8 @@ namespace StateMachineFramework
 {
 
 	/**
-	 * StateMachineEntryAction ƒNƒ‰ƒX.<br />
-	 * ‚±‚ÌƒNƒ‰ƒX‚ğŒp³‚µ‚ÄAƒXƒe[ƒgƒ}ƒVƒ“‚ÌƒGƒ“ƒgƒŠ‚ğÀ‘•‚µ‚Ä‚­‚¾‚³‚¢.
+	 * StateMachineEntryAction ã‚¯ãƒ©ã‚¹.<br />
+	 * ã“ã®ã‚¯ãƒ©ã‚¹ã‚’ç¶™æ‰¿ã—ã¦ã€ã‚¹ãƒ†ãƒ¼ãƒˆãƒã‚·ãƒ³ã®ã‚¨ãƒ³ãƒˆãƒªã‚’å®Ÿè£…ã—ã¦ãã ã•ã„.
 	 */
 	class StateMachineEntryAction :
 		public StateMachineAction
@@ -14,17 +14,17 @@ namespace StateMachineFramework
 	public:
 
 		/**
-		 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+		 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 		 */
 		StateMachineEntryAction(void) {}
 
 		/**
-		 * ‰¼‘zƒfƒXƒgƒ‰ƒNƒ^B
+		 * ä»®æƒ³ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 		 */
 		virtual ~StateMachineEntryAction(void) {}
 
 		/**
-		 * ActionCode ƒNƒ‰ƒX‚ğæ“¾‚µ‚Ü‚·B
+		 * ActionCode ã‚¯ãƒ©ã‚¹ã‚’å–å¾—ã—ã¾ã™ã€‚
 		 */
 		virtual ActionCode getActionCode() { return ENTRY; }
 	};

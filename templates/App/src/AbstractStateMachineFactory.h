@@ -5,24 +5,24 @@ namespace StateMachineFramework
 {
 
 	/**
-	 * AbstractStateMachineFactory ƒNƒ‰ƒX.
+	 * AbstractStateMachineFactory ã‚¯ãƒ©ã‚¹.
 	 */
 	class AbstractStateMachineFactory
 	{
 	public:
 
 		/**
-		 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+		 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 		 */
 		AbstractStateMachineFactory(void) {}
 
 		/**
-		 * ‰¼‘zƒfƒXƒgƒ‰ƒNƒ^B
+		 * ä»®æƒ³ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 		 */
 		virtual ~AbstractStateMachineFactory(void) {}
 
 		/**
-		 * StateMachine ƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğì¬‚·‚éB
+		 * StateMachine ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ä½œæˆã™ã‚‹ã€‚
 		 */
 		virtual StateMachine * createStateMachine(const char *key) = 0;
 	};

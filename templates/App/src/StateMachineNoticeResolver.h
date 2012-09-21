@@ -4,54 +4,54 @@ namespace StateMachineFramework
 {
 
 	/**
-	 * StateMachineNoticeResolver ƒNƒ‰ƒXB
+	 * StateMachineNoticeResolver ã‚¯ãƒ©ã‚¹ã€‚
 	 */
 	class StateMachineNoticeResolver
 	{
 	public:
 
 		/**
-		 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+		 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 		 */
 		StateMachineNoticeResolver(void);
 
 		/**
-		 * ‰¼‘zƒfƒXƒgƒ‰ƒNƒ^B
+		 * ä»®æƒ³ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 		 */
 		virtual ~StateMachineNoticeResolver(void);
 
 		/**
-		 * ó‘Ô‚ª•Ï‚í‚Á‚½‚©‚Ç‚¤‚©‚ğ•Ô‚µ‚Ü‚·B
-		 * @return bool true ‚Ìê‡Aó‘Ô‚ª•Ï‰»‚µ‚½Bfalse ‚Ìê‡Aó‘Ô‚ª•Ï‰»‚µ‚Ä‚¢‚È‚¢B
+		 * çŠ¶æ…‹ãŒå¤‰ã‚ã£ãŸã‹ã©ã†ã‹ã‚’è¿”ã—ã¾ã™ã€‚
+		 * @return bool true ã®å ´åˆã€çŠ¶æ…‹ãŒå¤‰åŒ–ã—ãŸã€‚false ã®å ´åˆã€çŠ¶æ…‹ãŒå¤‰åŒ–ã—ã¦ã„ãªã„ã€‚
 		 */
 		virtual bool isChanged();
 
 		/**
-		 * Ÿ‚Ì‘JˆÚæ‚Ìó‘ÔƒL[‚ğ•Ô‚µ‚Ü‚·B
+		 * æ¬¡ã®é·ç§»å…ˆã®çŠ¶æ…‹ã‚­ãƒ¼ã‚’è¿”ã—ã¾ã™ã€‚
 		 */
 		virtual char * getNextStateMachineKey(void);
 
 		/**
-		 * Ÿ‚Ì‘JˆÚæ‚Ìó‘ÔƒL[‚ğİ’è‚µ‚Ü‚·B
+		 * æ¬¡ã®é·ç§»å…ˆã®çŠ¶æ…‹ã‚­ãƒ¼ã‚’è¨­å®šã—ã¾ã™ã€‚
 		 */
 		virtual void setNextStateMachineKey(const char *nextStateMachineKey);
 
 	protected:
 
 		/**
-		 * ó‘Ô‚ªó‘Ô‚ª•Ï‚í‚Á‚½‚±‚Æ‚ğ’Ê’m‚µ‚Ü‚·B
+		 * çŠ¶æ…‹ãŒçŠ¶æ…‹ãŒå¤‰ã‚ã£ãŸã“ã¨ã‚’é€šçŸ¥ã—ã¾ã™ã€‚
 		 */
 		virtual void notifyChanged(const bool changed);
 
 		/**
-		 * ó‘Ô‘JˆÚæ‚Ìó‘ÔƒL[‚ğ’Ê’m‚µ‚Ü‚·B
+		 * çŠ¶æ…‹é·ç§»å…ˆã®çŠ¶æ…‹ã‚­ãƒ¼ã‚’é€šçŸ¥ã—ã¾ã™ã€‚
 		 */
 		virtual void notifyNextStateMachineKey(const char * nextStateMachineKey);
 
 	private:
 
 		/**
-		 * ƒƒ‚ƒŠ‚ğŠJ•ú‚µ‚Ü‚·B
+		 * ãƒ¡ãƒ¢ãƒªã‚’é–‹æ”¾ã—ã¾ã™ã€‚
 		 */
 		void close(void);
 

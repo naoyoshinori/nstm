@@ -4,13 +4,13 @@ namespace StateMachineFramework
 {
 
 	/**
-	 * StateMachineAction ƒNƒ‰ƒXB
+	 * StateMachineAction ã‚¯ãƒ©ã‚¹ã€‚
 	 */
 	class StateMachineAction
 	{
 	public:
 		/**
-		 * ActionCode ƒNƒ‰ƒXB
+		 * ActionCode ã‚¯ãƒ©ã‚¹ã€‚
 		 */
 		enum ActionCode {
 			ENTRY,
@@ -20,22 +20,22 @@ namespace StateMachineFramework
 		};
 
 		/**
-		 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+		 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 		 */
 		StateMachineAction(void) {}
 
 		/**
-		 * ‰¼‘zƒfƒXƒgƒ‰ƒNƒ^B
+		 * ä»®æƒ³ãƒ‡ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 		 */
 		virtual ~StateMachineAction(void) {}
 
 		/**
-		 * Às‚·‚éB
+		 * å®Ÿè¡Œã™ã‚‹ã€‚
 		 */
 		virtual void execute(void) = 0;
 
 		/**
-		 * ActionCode ƒNƒ‰ƒX‚ğæ“¾‚µ‚Ü‚·B
+		 * ActionCode ã‚¯ãƒ©ã‚¹ã‚’å–å¾—ã—ã¾ã™ã€‚
 		 */
 		virtual ActionCode getActionCode() = 0;
 	};

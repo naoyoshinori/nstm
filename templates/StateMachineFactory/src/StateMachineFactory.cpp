@@ -25,7 +25,7 @@ StateMachine * ${factory_name}::createStateMachine(const char *state_machine_key
 		return 0;
 	}
 
-	// close ����O�ɃR�s�[�����B
+	// close する前にコピーを取る。
 	char *cp_key = new char[strlen(state_machine_key) + 1];
 	strcpy(cp_key, state_machine_key);
 	close();

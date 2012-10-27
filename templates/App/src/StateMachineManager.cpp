@@ -13,7 +13,7 @@ StateMachineManager::~StateMachineManager(void)
 	close();
 }
 
-bool StateMachineManager::create(char *key)
+bool StateMachineManager::create(const char *key)
 {
 	bool result = false;
 	close();

@@ -15,4 +15,6 @@ int main(void)
     manager.create("${first_state_machine}");
     // 状態遷移が終わるまで実行。
     while (!manager.run());
+
+    return 0;
 }

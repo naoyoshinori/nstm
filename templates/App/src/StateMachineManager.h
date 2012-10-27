@@ -26,7 +26,7 @@ namespace StateMachineFramework
 		 * 初期化。
 		 * @param key 状態キー
 		 */
-		bool create(char *key);
+		bool create(const char *key);
 
 		/**
 		 * 実行する。

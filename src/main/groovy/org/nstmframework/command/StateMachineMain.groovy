@@ -30,7 +30,7 @@ class StateMachineMain {
         ]
 
         for (String option; option = ArgumentUtils.shift(args); ) {
-            def option_and_value = option.split("=")
+            def option_and_value = option.split(":")
 
             if (option_and_value.size() < 2) {
                 println "[ERROR] options error. `${option}`"

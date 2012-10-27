@@ -24,7 +24,7 @@ cd helloworld
 nstm generate state-machine Start
 nstm generate state-machine End
 nstm create-facotry
-nsmt create-main start=Start
+nsmt create-main start:Start
 
 new                       アプリケーションの雛形を作成する。
 g, generate               ステートマシンの雛形を作成する。
@@ -36,9 +36,9 @@ g, generate               ステートマシンの雛形を作成する。
 cf, create-factory        StateMachineFacotry を作成する。
                           [ファクトリー名]
 cm, create-main           Main を作成する。
-                          start=[開始するステートマシン名]
-                          main=[メイン名]
-                          factory=[ファクトリー名]
+                          start:[開始するステートマシン名]
+                          main:[メイン名]
+                          factory:[ファクトリー名]
 
 """
         } catch (NstmErrorException ex) {

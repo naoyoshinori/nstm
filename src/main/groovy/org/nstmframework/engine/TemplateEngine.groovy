@@ -4,6 +4,7 @@ import groovy.text.GStringTemplateEngine
 import org.apache.commons.io.FileUtils
 
 import java.beans.PropertyDescriptor
+import org.apache.commons.io.IOUtils
 
 /**
  * User: Naoyuki Yoshinori
@@ -22,16 +23,22 @@ abstract class TemplateEngine {
      */
     String app_root
 
+    /**
+     * Default encoding UTF-8
+     */
+    String encoding = 'UTF-8'
+
     boolean debug
 
     def createFile(String src_relative_path, String dest_relative_path) {
         def src_file = new File(template_root, src_relative_path)
         def dest_file = new File(app_root, dest_relative_path)
+        def reader = new InputStreamReader(new FileInputStream(src_file), encoding)
 
         println "  create  " + (debug ? dest_file.canonicalPath : dest_relative_path)
 
-        def generated_from_template = new GStringTemplateEngine().createTemplate(src_file).make(binding).toString()
-        FileUtils.writeStringToFile(dest_file, generated_from_template)
+        def generated_from_template = new GStringTemplateEngine().createTemplate(reader).make(binding).toString()
+        FileUtils.writeStringToFile(dest_file, generated_from_template, encoding)
     }
 
     def copyFile(String src_relative_path, String dest_relative_path) {

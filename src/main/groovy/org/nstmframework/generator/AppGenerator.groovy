@@ -28,6 +28,6 @@ class AppGenerator extends Generator {
         copyFile("App/src/StateMachineManager.h", "${app_name}/src/StateMachineManager.h")
         copyFile("App/src/StateMachineManager.cpp", "${app_name}/src/StateMachineManager.cpp")
         copyFile("App/nstm.txt", "${app_name}/nstm.txt")
-        copyFile("App/nstm.txt", "${app_name}/nstm.txt")
+        copyFile("App/nstm.yml", "${app_name}/nstm.yml")
     }
 }

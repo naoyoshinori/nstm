@@ -27,6 +27,6 @@ class StateMachineGeneratorTest extends Specification {
         new File("${app_root}/${app_name}/src/${name}.cpp").exists()
 
         where:
-        name << ["AStm", "BStm", "CStm"]
+        name << ["AStm", "BStm", "CStm", "AStm", "BStm", "CStm"]
     }
 }

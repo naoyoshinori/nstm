@@ -1,38 +1,29 @@
 apply plugin: 'idea'
 apply plugin: 'groovy'
+apply plugin: 'application'
 
-version = '0.1'
+version = '0.2.0'
+
+mainClassName = "org.nstmframework.Nstm"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    groovy group: 'org.codehaus.groovy', name: 'groovy-all', version: '1.8.7'
-    compile group: 'commons-io', name: 'commons-io', version: '2.4'
-    compile group: 'org.jyaml', name: 'jyaml', version: '1.3'
-    testCompile group: 'org.spockframework', name: 'spock-core', version: '0.6-groovy-1.8'
+    groovy  'org.codehaus.groovy:groovy-all:2.0.5'
+    compile 'commons-io:commons-io:2.4'
+    compile 'org.jyaml:jyaml:1.3'
+    testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
 }
 
 testClasses {
     copy {
-        from 'templates'
+        from "${projectDir}/templates"
         into "${buildDir}/classes/templates"
     }
 }
 
-jar {
-    copy {
-        from configurations.runtime
-        into "${buildDir}/libs/lib"
-    }
-    copy {
-        from 'templates'
-        into "${buildDir}/libs/templates"
-    }
-    manifest {
-        def manifestClasspath = configurations.runtime.collect {"lib/${it.name}"}.join(' ')
-        attributes 'Main-Class': 'org.nstmframework.Nstm'
-        attributes 'Class-Path': manifestClasspath
-    }
+applicationDistribution.from("${projectDir}/templates") {
+    into "/lib/templates"
 }

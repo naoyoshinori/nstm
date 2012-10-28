@@ -10,7 +10,34 @@ AUTHOR : Naoyuki Yoshinori（義則直行）
 します。状態遷移は StateMachineFramework が実現します。
 
 
-Example:
+インストール
+──────────────────────────────────────────────────
+    インストールしたディレクトリのパスを環境変数に設定します。
+    set PATH=%PATH%;{path}\nstm-0.2.0\bin
+
+
+はじめに
+──────────────────────────────────────────────────
+    `nstm new アプリケーション名`で、アプリケーションを作成します。
+    $ nstm new MyApplication
+
+    `nstm generate state-machine ステートマシン名`で、ステートマシンを作成します。
+    $ cd ~/MyApplication
+    $ nstm generate state-machine MyStateMachine
+
+    `nstm create-factory [ファクトリー名]`で、ファクトリーを作成します。ファクトリーはステートマシンの
+    インスタンの生成と破棄を管理します。ファクトリー名を省略した場合は、StateMachineFacotry が作成され
+    ます。
+    $ cd ~/MyApplication
+    $ nstm create-factory MyFactory
+
+    `nstm create-main start:ステートマシン名 [factory:ファクトリー名] [main:Main]`で、Main ファイルを作
+    成します。
+    $ cd ~/MyApplication
+    $ nstm create-main start:MyStateMachine factory:MyFactory main:MyMain
+
+
+Example
 ──────────────────────────────────────────────────
     状態[Start]から状態[End]に遷移するアプリケーションを作成するサンプルプログラム。
 
@@ -37,7 +64,6 @@ Example:
         }
     }
 
-
     End.cpp
 ------------------------------------------------------------------------------------------------
     void Start::doEvents(void)
@@ -51,7 +77,7 @@ Example:
     $ cd ./src
     $ g++ -o StmApp.exe *.cpp
 
-６．実行結果
+６．実行
     $ StmApp.exe
 
     実行順序

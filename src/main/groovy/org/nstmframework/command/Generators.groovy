@@ -1,42 +1,45 @@
 package org.nstmframework.command
 
-import org.nstmframework.exception.NstmException
-import org.nstmframework.util.ArgumentUtils
-import org.nstmframework.util.FileUtils
+import groovy.util.logging.Slf4j
 import org.nstmframework.exception.NstmErrorException
+import org.nstmframework.exception.NstmException
+import org.nstmframework.util.FileUtils
 
 /**
  * User: Naoyuki Yoshinori
  */
+@Slf4j
 class Generators {
 
-    List args
+    CommandOptions commands
 
     def start() {
-        if (!(args?.size() >= 2)) {
+        if (!(commands?.size() >= 2)) {
             throw new NstmException()
         }
 
         if (!FileUtils.exists("./nstm.txt")) {
-            println '  It is not in the root directory of the application.'
-            return
+            throw new NstmException('  It is not in the root directory of the application.')
         }
 
-        def command = ArgumentUtils.shift(args)
-        def name = ArgumentUtils.shift(args)
-        def debug = ArgumentUtils.shift(args) == '--debug'
+        def command = commands.shift()
+        def name = commands.shift()
 
         try {
-            command
             def generator_name = createGeneratorName(command) + 'Generator'
-            Class.forName("org.nstmframework.generator.${generator_name}")?.newInstance(name: name, debug: debug).start()
+            log.debug "Generator Class: {}", generator_name
+            Class.forName("org.nstmframework.generator.${generator_name}")?.newInstance(name: name).start()
 
         } catch (ClassNotFoundException ex) {
-            println "[ERROR] command is not found. `${command}`"
-            throw new NstmErrorException()
+            throw new NstmErrorException("[ERROR] command is not found. `${command}`")
         }
     }
 
+    /**
+     * state-machine -> StateMachine
+     * @param command
+     * @return
+     */
     def createGeneratorName(String command) {
         command.split('-').collect() { it.capitalize() }.join()
     }

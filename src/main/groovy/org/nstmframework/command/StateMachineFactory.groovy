@@ -2,9 +2,9 @@ package org.nstmframework.command
 
 import org.ho.yaml.Yaml
 import org.ho.yaml.exception.YamlException
+import org.nstmframework.exception.NstmErrorException
 import org.nstmframework.exception.NstmException
 import org.nstmframework.generator.StateMachineFactoryGenerator
-import org.nstmframework.util.ArgumentUtils
 import org.nstmframework.util.FileUtils
 
 /**
@@ -12,15 +12,14 @@ import org.nstmframework.util.FileUtils
  */
 class StateMachineFactory {
 
-    List args
+    CommandOptions commands
 
     def start() {
         if (!FileUtils.exists("./nstm.yml")) {
-            println '  It is not in the root directory of the application.'
-            throw new NstmException()
+            throw new NstmException('  It is not in the root directory of the application.')
         }
 
-        def factory_name = ArgumentUtils.shift(args)
+        def factory_name = commands.shift()
 
         try {
             new StateMachineFactoryGenerator(
@@ -28,7 +27,7 @@ class StateMachineFactory {
                     state_machine_list: Yaml.load(new File('./nstm.yml'))
             ).start()
         } catch (YamlException ex) {
-            throw new NstmException()
+            throw new NstmErrorException()
         }
     }
 }

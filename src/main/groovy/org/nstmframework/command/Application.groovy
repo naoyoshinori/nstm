@@ -1,30 +1,29 @@
 package org.nstmframework.command
 
-import org.nstmframework.util.FileUtils
-import org.nstmframework.generator.AppGenerator
-import org.nstmframework.util.ArgumentUtils
+import groovy.util.logging.Slf4j
 import org.nstmframework.exception.NstmException
+import org.nstmframework.generator.AppGenerator
+import org.nstmframework.util.FileUtils
 
 /**
  * User: Naoyuki Yoshinori
  */
+@Slf4j
 class Application {
 
-    List args
+    CommandOptions commands
 
     def start() {
-        if (!(args?.size() > 0)) {
+        if (!(commands?.size() > 0)) {
             throw new NstmException()
         }
 
-        def app_name = ArgumentUtils.shift(args)
-        def debug = ArgumentUtils.shift() == '--debug'
+        def app_name = commands.shift()
 
         if (FileUtils.exists("./${app_name}") || FileUtils.exists('./nstm.txt')) {
-            println '  The application is already created.'
-            return
+            throw new NstmException('  The application is already created.')
         }
 
-        new AppGenerator(app_name: app_name, debug: debug).start()
+        new AppGenerator(app_name: app_name).start()
     }
 }

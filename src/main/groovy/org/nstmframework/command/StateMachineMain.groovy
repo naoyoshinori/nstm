@@ -1,26 +1,25 @@
 package org.nstmframework.command
 
-import org.nstmframework.exception.NstmErrorException
+import groovy.util.logging.Slf4j
 import org.nstmframework.exception.NstmException
 import org.nstmframework.generator.StateMachineMainGenerator
-import org.nstmframework.util.ArgumentUtils
 import org.nstmframework.util.FileUtils
 
 /**
  * User: Naoyuki Yoshinori
  */
+@Slf4j
 class StateMachineMain {
 
-    List args
+    CommandOptions commands
 
     def start() {
-        if (!(args?.size() > 0)) {
+        if (!(commands?.size() > 0)) {
             throw new NstmException()
         }
 
         if (!FileUtils.exists('./nstm.txt')) {
-            println '  It is not in the root directory of the application.'
-            return
+            throw new NstmException('  It is not in the root directory of the application.')
         }
 
         def options = [
@@ -29,16 +28,17 @@ class StateMachineMain {
                 'factory': 'StateMachineFactory',
         ]
 
-        for (String option; option = ArgumentUtils.shift(args); ) {
+        for (String option; option = commands.shift(); ) {
             def option_and_value = option.split(":")
 
             if (option_and_value.size() < 2) {
-                println "[ERROR] options error. `${option}`"
-                throw new NstmErrorException()
+                throw new NstmException("[ERROR] options error. `${option}`")
             }
 
-            options["${option_and_value[0]}"] = option_and_value[1]
+            options[option_and_value[0]] = option_and_value[1]
         }
+
+        log.debug "Options: {}", options
 
         new StateMachineMainGenerator(first_state_machine: options['start'], name: options['main'], factory_name: options['factory']).start()
     }

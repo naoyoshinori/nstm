@@ -1,48 +1,41 @@
 package org.nstmframework
 
-import org.nstmframework.command.Commands
-import org.nstmframework.exception.NstmException
+import ch.qos.logback.classic.Level
+import ch.qos.logback.classic.Logger
+import groovy.util.logging.Slf4j
+import org.nstmframework.command.CommandExecution
+import org.nstmframework.command.CommandOptions
 import org.nstmframework.exception.NstmErrorException
+import org.nstmframework.exception.NstmException
+import org.slf4j.LoggerFactory
 
 /**
  * User: Naoyuki Yoshinori
  */
+@Slf4j
 class Nstm {
 
     static main(args) {
         try {
 
-            new Commands(args: args).start()
+            def commands = new CommandOptions(Arrays.asList(args))
+            if (commands.pop(/--debug/) == '--debug') {
+                setLoggingLevel(Level.DEBUG)
+            }
+
+            new CommandExecution(commands: commands).start()
 
         } catch (NstmException ex) {
-            print """
-USAGE: nstm [option...]
-
-Example:
-nstm new helloworld
-cd helloworld
-nstm generate state-machine Start
-nstm generate state-machine End
-nstm create-facotry
-nsmt create-main start:Start
-
-new                       アプリケーションの雛形を作成する。
-g, generate               ステートマシンの雛形を作成する。
-　　　          　　　　　state-machine [ステートマシン名]
-                          entry-action  [ステートマシン名]
-                          do-action     [ステートマシン名]
-                          event-action  [ステートマシン名]
-                          exit-action   [ステートマシン名]
-cf, create-factory        StateMachineFacotry を作成する。
-                          [ファクトリー名]
-cm, create-main           Main を作成する。
-                          start:[開始するステートマシン名]
-                          main:[メイン名]
-                          factory:[ファクトリー名]
-
-"""
+            if (ex.message) println ex.message
         } catch (NstmErrorException ex) {
-            // TODO: 例外処理
+            log.error ex.message
+        } catch (Exception ex) {
+            log.error ex.message
         }
+    }
+
+    static setLoggingLevel(Level level) {
+        Logger root = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME)
+        root.setLevel(level)
     }
 }

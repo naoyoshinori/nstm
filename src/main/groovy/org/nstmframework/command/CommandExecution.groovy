@@ -1,14 +1,15 @@
 package org.nstmframework.command
 
-import org.nstmframework.util.ArgumentUtils
+import groovy.util.logging.Slf4j
 import org.nstmframework.exception.NstmException
 
 /**
  * User: Naoyuki Yoshinori
  */
-class Commands {
+@Slf4j
+class CommandExecution {
 
-    String[] args
+    CommandOptions commands
 
     def start() {
         def alias = [
@@ -17,12 +18,10 @@ class Commands {
                 'cm': 'create-main',
         ]
 
-        List commands = new ArrayList<>(Arrays.asList(args))
+        def command = commands.shift()
+        command = alias[command] ? alias[command] : command
 
-        def command = ArgumentUtils.shift(commands)
-        command = alias["${command}"] ? alias[command] : command
-
-        println command
+        log.debug "Execute command: {}", command
         switch (command) {
             case 'new':
                 new Application(args: commands).start()

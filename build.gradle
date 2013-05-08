@@ -21,6 +21,7 @@ dependencies {
 }
 
 testClasses {
+    delete "${buildDir}/test-projects"
     copy {
         from "${projectDir}/templates"
         into "${buildDir}/classes/templates"
